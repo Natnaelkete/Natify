@@ -14,13 +14,13 @@ function Abouts() {
         </div>
       </div>
       <p className="mt-6 text-lg leading-8 max-w-2xl mx-auto">
-        Welcome to My E-commerce, where passion for quality meets the
-        convenience of online shopping. At My E-commerce, we strive to redefine
-        your shopping experience by offering a curated selection of premium
-        furniture and decor. Our mission is to provide you with unparalleled
-        customer service, ensuring that your journey to finding the perfect
-        pieces for your home is as enjoyable as it is seamless. Discover a world
-        of elegance, comfort, and style at My E-commerce.
+        Welcome to My Natify, where passion for quality meets the convenience of
+        online shopping. At Natify, we strive to redefine your shopping
+        experience by offering a curated selection of premium furniture and
+        decor. Our mission is to provide you with unparalleled customer service,
+        ensuring that your journey to finding the perfect pieces for your home
+        is as enjoyable as it is seamless. Discover a world of elegance,
+        comfort, and style at Natify.
       </p>
     </>
   );

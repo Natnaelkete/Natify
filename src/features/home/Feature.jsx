@@ -12,16 +12,16 @@ function Feature() {
 
   return (
     <div>
-      <section className="z-40 relative ">
-        <div className="mx-auto">
-          <h2 className="text-3xl font-light sm:text-4xl lg:text-5xl">
+      <section className="z-40 relative  md:mt-20 ">
+        <div className="mx-auto ">
+          <h2 className="text-3xl mb-4 font-light sm:text-4xl lg:text-5xl">
             Our
-            <span className="block w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-500 lg:inline">
+            <span className="w-full font-light text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-500 lg:inline">
               {" "}
               Products
             </span>{" "}
           </h2>
-          <p className="mb-20 text-lg ">
+          <p className="mb-10 text-lg ">
             Comes directly from the desk of engineers, creators and managers at
           </p>
           <hr className="my-10 border-gray-200 dark:border-gray-700" />

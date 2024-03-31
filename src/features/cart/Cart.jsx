@@ -45,81 +45,85 @@ function Cart() {
       <hr className="my-10 border-gray-200 dark:border-gray-700" />
       <div className=" flex flex-col standard:flex-row justify-between">
         {cart.length > 0 ? (
-          <ul className="flex flex-col gap-14">
+          <ul className="flex flex-col md:w-full gap-14">
             {cart.map((item) => (
               <>
                 <li key={item.productId}>
-                  <div className=" flex gap-20 flex-col md:flex-row  justify-between ">
+                  <div className=" flex  flex-col  md:flex-row  md:gap-10 ">
                     <img
                       src={item.productImage}
-                      className="rounded-lg w-full h-[200px] sm:h-[250px] md:h-[150px] md:w-[170px]"
+                      className="rounded-lg w-full mb-6 md:mb-0 h-[200px] sm:h-[250px] md:h-[150px] md:w-[170px]"
                     />
-                    <div className="mr-8 flex flex-col gap-4">
-                      <h3>{item.name}</h3>
-                      <h4>{item.company}</h4>
-                      <div>
-                        <h4>color</h4>
-                        <ul className="flex flex-row gap-2">
-                          {item.selectedColors.map((color) => (
-                            <li key={color}>
+                    <div className="flex flex-row justify-between md:gap-14">
+                      <div className=" flex justify-between md:gap-10">
+                        <div className=" flex flex-col ml-4">
+                          <h3>{item.name}</h3>
+                          <h4>{item.company}</h4>
+                        </div>
+                        <div className="flex flex-col gap-4 ml-6">
+                          <h4>color</h4>
+                          <ul className="flex flex-row gap-2">
+                            {item.selectedColors.map((color) => (
+                              <li key={color}>
+                                <button
+                                  style={{ backgroundColor: color }}
+                                  className={`h-6 w-6 rounded-full border-2 border-gray-400 hover:cursor-pointer focus:outline-none focus:border-gray-300 focus:border-2`}
+                                ></button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="flex flex-col  gap-4">
+                        <h3 className="place-items-center">Amount</h3>
+                        <div className="">
+                          <form className="flex flex-col justify-center ">
+                            <div className="relative flex items-center">
                               <button
-                                style={{ backgroundColor: color }}
-                                className={`h-6 w-6 rounded-full border-2 border-gray-400 hover:cursor-pointer focus:outline-none focus:border-gray-300 focus:border-2`}
-                              ></button>
-                            </li>
-                          ))}
-                        </ul>
+                                type="button"
+                                id="decrement-button"
+                                onClick={() =>
+                                  dispatch(decreaseItemQuantity(item.productId))
+                                }
+                                data-input-counter-decrement="counter-input"
+                                className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                              >
+                                <FiMinus />
+                              </button>
+                              <input
+                                type="text"
+                                id="counter-input"
+                                className="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
+                                placeholder=""
+                                value={item.quantity}
+                                readOnly
+                              />
+                              <button
+                                type="button"
+                                id="increment-button"
+                                onClick={() =>
+                                  dispatch(increaseItemQuantity(item.productId))
+                                }
+                                data-input-counter-increment="counter-input"
+                                className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                              >
+                                <FiPlus />
+                              </button>
+                            </div>
+                          </form>
+                          <button
+                            onClick={() =>
+                              dispatch(deleteCartItem(item.productId))
+                            }
+                            className="text-red-500 hover:underline"
+                          >
+                            remove
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col  gap-4">
-                      <h3 className="place-items-center">Amount</h3>
-                      <div className="">
-                        <form className="flex flex-col justify-center ">
-                          <div className="relative flex items-center">
-                            <button
-                              type="button"
-                              id="decrement-button"
-                              onClick={() =>
-                                dispatch(decreaseItemQuantity(item.productId))
-                              }
-                              data-input-counter-decrement="counter-input"
-                              className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-                            >
-                              <FiMinus />
-                            </button>
-                            <input
-                              type="text"
-                              id="counter-input"
-                              className="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
-                              placeholder=""
-                              value={item.quantity}
-                              readOnly
-                            />
-                            <button
-                              type="button"
-                              id="increment-button"
-                              onClick={() =>
-                                dispatch(increaseItemQuantity(item.productId))
-                              }
-                              data-input-counter-increment="counter-input"
-                              className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-                            >
-                              <FiPlus />
-                            </button>
-                          </div>
-                        </form>
-                        <button
-                          onClick={() =>
-                            dispatch(deleteCartItem(item.productId))
-                          }
-                          className="text-red-500 hover:underline"
-                        >
-                          remove
-                        </button>
+                      <div>
+                        <h3>{formatCurrency(item.price)}</h3>
                       </div>
-                    </div>
-                    <div>
-                      <h3>{formatCurrency(item.price)}</h3>
                     </div>
                   </div>
                 </li>

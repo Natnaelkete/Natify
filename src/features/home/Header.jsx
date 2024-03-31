@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { navLinks } from "../../Utility/Cms";
-import { GiHamburgerMenu } from "react-icons/gi";
 import CartCounter from "../../ui/CartCounter";
 import { IoMoon } from "react-icons/io5";
 import { MdOutlineWbSunny } from "react-icons/md";
@@ -8,6 +7,7 @@ import { useTheme } from "../../ui/useThemetoggler";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Avatar from "../../ui/Avatar";
+import Drawer from "../../ui/Drawer";
 
 function Header() {
   const { handleClick, theme } = useTheme();
@@ -20,29 +20,7 @@ function Header() {
       }`}
     >
       <div className="navbar-start">
-        <div className="dropdown lg:hidden sm:flex">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle ">
-            <GiHamburgerMenu />
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {navLinks.map((links, index) => {
-              if (
-                (links.href === "/checkout" || links.href === "/orders") &&
-                !isAuthenticated
-              )
-                return null;
-
-              return (
-                <li key={index}>
-                  <NavLink to={links.href}>{links.label}</NavLink>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <Drawer />
         <Link
           to="/"
           className={` bg-none hover:bg-none font-extrabold text-xl lg:flex hidden sm:flex `}

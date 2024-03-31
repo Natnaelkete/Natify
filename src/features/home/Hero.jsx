@@ -12,16 +12,17 @@ function Hero() {
       }`}
     >
       <div className="flex flex-col mb-[150px] justify-center col-span-1 text-center lg:text-start">
-        <h1 className="mb-8 text-4xl font-extrabold leading-tight lg:text-6xl ">
+        <h1 className="mb-8 text-[40px] md:text-4xl font-extrabold leading-tight lg:text-6xl ">
           We’re changing the way people shop.
         </h1>
-        <p className="mb-6 text-base font-inter font-normal leading-7 lg:w-3/4 ">
+        <p
+          className={`mb-11  ${
+            theme === "dark" ? "text-slate-300" : ""
+          } flex  text-[16px] font-inter  leading-7 lg:w-3/4`}
+        >
           Transform your furniture shopping experience with our cutting-edge
           e-commerce web app. Bid farewell to the days of painstakingly crafting
-          templates from the ground up. Embrace the unparalleled speed,
-          responsiveness, and modern design of our dashboard solution. Your
-          journey to effortlessly discovering and acquiring the perfect
-          furniture pieces begins here.
+          templates from the ground up.
         </p>
 
         <div className="flex flex-col items-center gap-4 lg:flex-row">
