@@ -8,7 +8,7 @@ function Drawer() {
   const isAuthenticated = useSelector((state) => state.user.isLoggedIn);
 
   return (
-    <div className="">
+    <div className="z-10">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}

@@ -62,7 +62,7 @@ function Details() {
       <div className="w-full">
         <img
           src={product.attributes.image}
-          className="h-[500px] standard:h-[400px] w-full standard:w-[500px] rounded-lg "
+          className="h-[250px] standard:h-[400px] w-full standard:w-[500px] rounded-lg "
         />
       </div>
       <div

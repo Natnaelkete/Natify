@@ -62,7 +62,7 @@ function Checkout() {
                 type="text"
                 id="address"
                 name="address"
-                className="grow border border-none"
+                className="grow border w-full border-none"
                 defaultValue={address}
               />
 
@@ -71,7 +71,7 @@ function Checkout() {
                   e.preventDefault();
                   dispatch(fetchAddress());
                 }}
-                className="kbd kbd-md cursor-pointer"
+                className="kbd kbd-md  cursor-pointer"
               >
                 <MdLocationPin />
               </button>

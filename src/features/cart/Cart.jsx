@@ -10,18 +10,6 @@ import { formatCurrency } from "../../Utility/helpers";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
-  // const [cart, setCart] = useState([]);
-
-  // useEffect(() => {
-  //   const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //   setCart(savedCart);
-  // }, []);
-  // function deleteCartItemFromLocalStorage(itemId) {
-  //   const updatedCart = cart.filter(item => item.productId !== itemId);
-  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
-  //   setCart(updatedCart);
-  // }
-
   const cart = useSelector((state) => state.cart.cart);
   const totalCartPrice = useSelector(getTotalCartPrice);
   const isAuthenticated = useSelector((state) => state.user.isLoggedIn);
@@ -54,26 +42,27 @@ function Cart() {
                       src={item.productImage}
                       className="rounded-lg w-full mb-6 md:mb-0 h-[200px] sm:h-[250px] md:h-[150px] md:w-[170px]"
                     />
-                    <div className="flex flex-row justify-between md:gap-14">
-                      <div className=" flex justify-between md:gap-10">
-                        <div className=" flex flex-col ml-4">
-                          <h3>{item.name}</h3>
-                          <h4>{item.company}</h4>
-                        </div>
-                        <div className="flex flex-col gap-4 ml-6">
-                          <h4>color</h4>
-                          <ul className="flex flex-row gap-2">
-                            {item.selectedColors.map((color) => (
-                              <li key={color}>
-                                <button
-                                  style={{ backgroundColor: color }}
-                                  className={`h-6 w-6 rounded-full border-2 border-gray-400 hover:cursor-pointer focus:outline-none focus:border-gray-300 focus:border-2`}
-                                ></button>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                    <div className="flex flex-col md:flex-row gap-10 md:gap-14">
+                      <div className=" ">
+                        <h3 className="text-3xl font-bold md:text:sm">
+                          {item.name}
+                        </h3>
+                        <h4>{item.company}</h4>
                       </div>
+                      <div className="">
+                        <h4>color</h4>
+                        <ul className="flex flex-row gap-2">
+                          {item.selectedColors.map((color) => (
+                            <li key={color}>
+                              <button
+                                style={{ backgroundColor: color }}
+                                className={`h-6 w-6 rounded-full border-2 border-gray-400 hover:cursor-pointer focus:outline-none focus:border-gray-300 focus:border-2`}
+                              ></button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
                       <div className="flex flex-col  gap-4">
                         <h3 className="place-items-center">Amount</h3>
                         <div className="">

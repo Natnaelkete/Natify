@@ -104,7 +104,9 @@ function Product() {
           </button>
         </div>
         <div>
-          <button className="btn btn-sm  btn-warning w-full">Reset</button>
+          <button type="reset" className="btn btn-sm  btn-warning w-full">
+            Reset
+          </button>
         </div>
       </Form>
 
